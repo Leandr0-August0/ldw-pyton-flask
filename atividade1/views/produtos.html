@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+    <section class="form-section">
+        <h2>Cadastro de Produtos</h2>
+        <form action="{{ url_for('novoproduto') }}" method="POST" class="form">
+            <div class="form-item">
+                <label>Produto:</label>
+                <input type="text" name="product" required />
+            </div>
+            <div class="form-item">
+                <label>Categoria:</label>
+                <input type="text" name="category" required />
+            </div>
+            <div class="form-item">
+                <label>Modelo:</label>
+                <input type="text" name="model" />
+            </div>
+            <div class="form-item">
+                <label>Tamanhos:</label>
+                <input type="text" name="sizes" />
+            </div>
+            <button type="submit" class="btn-primary">Cadastrar</button>
+        </form>
+    </section>
+
+    <!-- <section class="cards-section"> -->
+    <h2>Produtos Registrados</h2>
+    <div class="cards">
+        {% for product in productlist %}
+        <div class="card">
+            <h3>{{ product.Produto }}</h3>
+            <p><strong>Categoria:</strong> {{ product.Categoria }}</p>
+            <p><strong>Modelo:</strong> {{ product.Modelo }}</p>
+            <p><strong>Tamanhos:</strong> {{ product.Tamanhos }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- </section> -->
+
+    <a href="{{ url_for('home') }}" class="btn-secondary">Voltar ao início</a>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+  <h1>Bem-vindo à <span>Spark Fashion</span></h1>
+  <p>Moda que brilha com você. Cadastre e descubra nossos produtos exclusivos!</p>
+  <div class="hero-buttons">
+    <a href="{{ url_for('produtos') }}" class="btn-primary">Catálogo</a>
+    <a href="{{ url_for('novoproduto') }}" class="btn-secondary">Cadastrar Produto</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+    <h1>Cadastro de Produtos</h1>
+
+    <form action="{{ url_for('novoproduto') }}" method="POST" class="form">
+        <div class="form-item">
+            <label>Produto:</label>
+            <input type="text" name="product" required />
+        </div>
+
+        <div class="form-item">
+            <label>Categoria:</label>
+            <input type="text" name="category" required />
+        </div>
+
+        <div class="form-item">
+            <label>Modelo:</label>
+            <input type="text" name="model" />
+        </div>
+
+        <div class="form-item">
+            <label>Tamanhos:</label>
+            <input type="text" name="sizes" />
+        </div>
+
+        <button type="submit" class="btn-primary">Cadastrar</button>
+    </form>
+
+    <br />
+    <hr />
+
+    <!-- Tabela -->
+    <h2 class="subtitle">Produtos Registrados</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Modelo</th>
+                <th>Tamanhos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in productlist %}
+            <tr>
+                <td>{{ product.Produto }}</td>
+                <td>{{ product.Categoria }}</td>
+                <td>{{ product.Modelo }}</td>
+                <td>{{ product.Tamanhos }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+	<a href="{{ url_for('home') }}" class="btn-secondary">Voltar para o início</a>
+</div>
+
+{% endblock %}

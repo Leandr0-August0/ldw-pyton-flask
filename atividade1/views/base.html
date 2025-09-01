@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark Fashion</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="logo">Spark Fashion</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Início</a>
+            <a href="{{ url_for('produtos') }}">Produtos</a>
+            <a href="{{ url_for('novoproduto') }}">Cadastrar</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Todos os direitos reservados &reg; Spark Fashion</p>
+    </footer>
+</body>
+</html>
