@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+  <h2 class="mb-4 text-center">Produtos Registrados</h2>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+    {% for product in productlist %}
+      <ul class="list-group">
+    {% for cliente in clientes %}
+      <li class="list-group-item">{{ cliente }}</li>
+    {% else %}
+      <li class="list-group-item text-muted">Nenhum cliente registrado.</li>
+    {% endfor %}
+  </ul>
+    {% endfor %}
+  </div>
+
+  <div class="text-center">
+    <a href="{{ url_for('home') }}" class="btn btn-secondary">Voltar ao início</a>
+  </div>
+</div>
+{% endblock %}
