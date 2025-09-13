@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-4">
+	<h2>{{ produto.title }}</h2>
+	<img
+		src="{{ produto.image }}"
+		alt="{{ produto.title }}"
+		style="max-width: 300px"
+		class="img-fluid mb-3"
+	/>
+	<p><strong>Descrição:</strong> {{ produto.description }}</p>
+	<p><strong>Preço:</strong> ${{ "%.2f"|format(produto.price) }}</p>
+	<a href="{{ url_for('roupas') }}" class="btn btn-secondary">Voltar</a>
+</div>
+{% endblock %}

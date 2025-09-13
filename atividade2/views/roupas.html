@@ -2,7 +2,7 @@
 <h2 class="mb-4">Vestuário</h2>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 	{% for p in produtos %}
-	<div class="col">
+	<a class="col" href="{{ url_for('roupas', id=p.id) }}" style="text-decoration: none;">
 		<div class="card h-100 shadow-sm">
 			<img
 				src="{{ p.image }}"
@@ -30,7 +30,7 @@
 				<p class="fw-bold mb-0">$ {{ "%.2f"|format(p.price) }}</p>
 			</div>
 		</div>
-	</div>
+	</a>
 	{% endfor %}
 </div>
 {% endblock %}
